@@ -12,7 +12,7 @@
 @endsection
 
 @section('subheader-action')
-    @can('menu-list')
+    @can('menu')
         <a href="{{ route('menu.index') }}" class="btn btn-success pull-right">
             Go Menu list
         </a>
@@ -25,10 +25,6 @@
 
     <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 
-        <!-- begin:: Content Head -->
-
-
-        <!-- end:: Content Head -->
 
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -159,7 +155,7 @@
                                     </div>
                                     <div class="col-10">
                                         <button type="submit" class="btn btn-success">Submit</button>
-                                        @can('menu-list')
+                                        @can('menu')
                                             <a href="{{route('menu.index')}}" class="btn btn-secondary pull-right "> Cancel </a>
                                         @endcan
                                     </div>

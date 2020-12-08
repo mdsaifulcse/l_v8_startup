@@ -12,7 +12,7 @@
 @endsection
 
 @section('subheader-action')
-    @can('menu-list')
+    @can('menu')
         <a href="{{ route('menu.index') }}" class="btn btn-success pull-right">
             Go Menu list
         </a>
@@ -35,18 +35,6 @@
 
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-
-            <!--Begin::Row-->
-
-            @if ($message = Session::get('success'))
-
-                <div class="alert alert-success">
-
-                    <p>{{ $message }}</p>
-
-                </div>
-
-            @endif
 
 
             <div class="row justify-content-md-center justify-content-lg-center">
@@ -185,7 +173,7 @@
                                     </div>
                                     <div class="col-10">
                                         <button type="submit" class="btn btn-success">Submit</button>
-                                        @can('menu-list')
+                                        @can('menu')
                                             <a href="{{ route('sub-sub-menu.show',$subMenu->id) }}" class="btn btn-secondary pull-right "> Cancel </a>
                                         @endcan
                                     </div>

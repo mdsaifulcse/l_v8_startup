@@ -72,7 +72,7 @@ Route::group(['middleware' => ['auth'],'namespace'=>'Menu','prefix' => 'admin'],
 
     Route::resource('menu','MenuController')->middleware('permission:menu');
     Route::resource('sub-menu','SubMenuController')->middleware('permission:menu');
-    Route::resource('sub-sub-menu','SubSubMenuController')->middleware('permission:permission:menu');
+    Route::resource('sub-sub-menu','SubSubMenuController')->middleware('permission:menu');
 
 });
 Route::group(['middleware' => ['auth'],'namespace'=>'Spatie','prefix' => 'admin'], function() {

@@ -12,7 +12,7 @@
 @endsection
 
 @section('subheader-action')
-    @can('menu-list')
+    @can('menu')
 
 
         <a href="{{route('sub-menu.show',$menu->id)}}" class="btn btn-success pull-right">
@@ -168,7 +168,7 @@
                                     </div>
                                     <div class="col-10">
                                         <button type="submit" class="btn btn-success">Submit</button>
-                                        @can('menu-list')
+                                        @can('menu')
                                             <a href="{{route('sub-menu.show',$menu->id)}}" class="btn btn-secondary pull-right "> Cancel </a>
                                         @endcan
                                     </div>
