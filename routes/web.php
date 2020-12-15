@@ -32,6 +32,10 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
 
 
+
+Route::get('/load-sub-cat-by-cat/{categoryId}', '\App\CustomFacades\DataLoadController@loadSubCatsByCat');
+
+
 Route::group(['middleware' => ['auth'],'namespace'=>'Admin','prefix' => 'admin'], function() {
 
     Route::get('demo-route',function (){
@@ -39,6 +43,9 @@ Route::group(['middleware' => ['auth'],'namespace'=>'Admin','prefix' => 'admin']
     });
 
     Route::get('/home', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('home');
+
+    Route::resource('news','NewsController')->middleware('permission:news-list|news-create|news-edit|news-delete');
+    Route::get('/get-news','NewsController@getNewData')->middleware('permission:news-list|news-create|news-edit|news-delete');
 
 
     Route::resource('client','OurClientController')->middleware('permission:client');

@@ -35,17 +35,6 @@ User Edit
         <!-- begin:: Content -->
         <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 
-            <!--Begin::Row-->
-        
-            @if ($message = Session::get('success'))
-
-                <div class="alert alert-success">
-
-                    <p>{{ $message }}</p>
-
-                </div>
-
-            @endif
 
             <div class="row justify-content-md-center justify-content-lg-center">
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -131,6 +120,31 @@ User Edit
                                                         @if ($errors->has('contact'))
                                                             <span class="help-block">
                                                             <strong class="text-danger">{{ $errors->first('contact') }}</strong>
+                                                    </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="example-text-input" class="col-3 col-form-label">Designation</label>
+                                                    <div class="col-9">
+                                                        {!! Form::text('designation', $value=old('designation',isset($user->profile)?$user->profile->designation:''), array('placeholder' => 'User Designation Here','class' => 'form-control','required'=>false)) !!}
+
+                                                        @if ($errors->has('designation'))
+                                                            <span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('designation') }}</strong>
+                                                    </span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="example-text-input" class="col-3 col-form-label">Bio</label>
+                                                    <div class="col-9">
+                                                        {!! Form::textArea('bio', $value=old('bio',isset($user->profile)?$user->profile->bio:''), ['rows'=>4,'placeholder' => 'User Short Bio ','class' => 'form-control','required'=>false]) !!}
+
+                                                        @if ($errors->has('bio'))
+                                                            <span class="help-block">
+                                                            <strong class="text-danger">{{ $errors->first('bio') }}</strong>
                                                     </span>
                                                         @endif
                                                     </div>
