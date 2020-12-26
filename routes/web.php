@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/login');
-});
 
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
@@ -89,11 +86,20 @@ Route::group(['middleware' => ['auth'],'namespace'=>'Spatie','prefix' => 'admin'
 
 });
 
+
+
 Auth::routes([
     'register' => false, // Registration Routes...
     'reset' => false, // Password Reset Routes...
     'verify' => false, // Email Verification Routes...
 ]);
+
+Route::group(['namespace'=>'Client'], function() {
+    Route::get('/', 'HomeNewsController@index');
+    Route::get('/{category}/{subCate?}/{newsId?}/{title?}', 'CategoryNewsController@index');
+
+});
+
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
